@@ -1,0 +1,183 @@
+
+
+@baseUrl = http://192.168.2.103:3000
+@url = {{baseUrl}}/club-api
+@authToken = {{login.response.body.$.token}}
+
+### 
+
+# @name info
+GET {{url}}/info HTTP/1.1
+content-type: application/json
+
+### 
+
+# @name test
+GET {{url}}/test HTTP/1.1
+content-type: application/json
+authorization: Bearer {{authToken}}
+
+### 
+
+# @name register
+POST {{url}}/users/register HTTP/1.1
+content-type: application/json
+
+{
+    "username": "dsc_developer",
+    "email": "michael@bughaus.de",
+    "password": "55n6qjg5"
+}
+
+### 
+
+# @name login
+POST {{url}}/users/authenticate HTTP/1.1
+content-type: application/json
+
+{
+    "username": "dsc_developer",
+    "password": "55n6qjg5"
+}
+
+### 
+
+# @name login
+POST {{url}}/users/authenticate HTTP/1.1
+content-type: application/json
+
+{
+    "username": "table_s1",
+    "password": "nk13ug9a"
+}
+
+### 
+
+# @name login
+POST {{url}}/users/authenticate HTTP/1.1
+content-type: application/json
+
+{
+    "username": "table_s2",
+    "password": "o5bct71q"
+}
+
+### 
+
+# @name profile
+GET {{url}}/users/profile HTTP/1.1
+content-type: application/json
+authorization: Bearer {{authToken}}
+
+### 
+
+# @name user_changeRole
+PUT {{url}}/users/changeRole HTTP/1.1
+content-type: application/json
+authorization: Bearer {{authToken}}
+
+{
+    "username": "snooker_table_1",
+    "role": "process_table" 
+}
+
+### 
+
+# @name member_bindLogin
+POST {{url}}/member/bindLogin HTTP/1.1
+content-type: application/json
+authorization: Bearer {{authToken}}
+
+{
+    "username": "dsc_developer",
+    "cardId": "2"
+}
+
+### 
+
+# @name table_bindLogin
+POST {{url}}/table/bindLogin HTTP/1.1
+content-type: application/json
+authorization: Bearer {{authToken}}
+
+{
+    "username": "table_s2",
+    "tableId": "S2"
+}
+
+### 
+
+# @name member_get
+GET {{url}}/member HTTP/1.1
+content-type: application/json
+authorization: Bearer {{authToken}}
+
+### 
+
+# @name member_getByCardId
+GET {{url}}/member/F35C1499 HTTP/1.1
+content-type: application/json
+authorization: Bearer {{authToken}}
+
+### 
+
+# @name member_put
+PUT {{url}}/member HTTP/1.1
+content-type: application/json
+authorization: Bearer {{authToken}}
+
+{
+    "firstname": "Backhaus",
+    "lastname": "Michael",
+    "flatrate": true,
+    "active": true,
+    "cardId": "1"
+}
+
+### 
+
+# @name table_get
+GET {{url}}/table HTTP/1.1
+content-type: application/json
+authorization: Bearer {{authToken}}
+
+### 
+
+# @name table_getById
+GET {{url}}/table/S1 HTTP/1.1
+content-type: application/json
+authorization: Bearer {{authToken}}
+
+
+### 
+
+# @name table_put
+PUT {{url}}/table HTTP/1.1
+content-type: application/json
+authorization: Bearer {{authToken}}
+
+{
+    "tableId": "S2",
+    "name": "Snooker Tisch 2"
+}
+
+### 
+
+# @name session_start
+GET {{url}}/session/start/F35C1499 HTTP/1.1
+content-type: application/json
+authorization: Bearer {{authToken}}
+
+### 
+
+# @name session_stop
+GET {{url}}/session/stop/F35C1499 HTTP/1.1
+content-type: application/json
+authorization: Bearer {{authToken}}
+
+### 
+
+# @name session_active
+GET {{url}}/session/activeCards HTTP/1.1
+content-type: application/json
+authorization: Bearer {{authToken}}
