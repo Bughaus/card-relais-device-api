@@ -3,3 +3,5 @@ node_modules/
 ssl/
 users.json
 init*.ts
+build/
+dist/
