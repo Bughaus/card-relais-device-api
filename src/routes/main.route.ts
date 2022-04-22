@@ -15,6 +15,10 @@ router.get('/club-api/test', [], async (req: Request, res: Response) => {
     return res.status(200).send(activeSession)
 })
 
+router.get('/club-api/connectionOk', [], async (req: Request, res: Response) => {
+    return res.status(200).send({"$ok":true})
+})
+
 
 export {
     router as mainRouter
