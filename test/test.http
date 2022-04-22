@@ -1,6 +1,6 @@
 
 
-@baseUrl = http://192.168.2.103:3000
+@baseUrl = http://192.168.2.165:3000
 @url = {{baseUrl}}/club-api
 @authToken = {{login.response.body.$.token}}
 
@@ -9,6 +9,13 @@
 # @name info
 GET {{url}}/info HTTP/1.1
 content-type: application/json
+
+### 
+
+# @name connectionOk
+GET {{url}}/connectionOk HTTP/1.1
+content-type: application/json
+authorization: Bearer {{authToken}}
 
 ### 
 
