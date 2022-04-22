@@ -55,8 +55,8 @@ else {
 dotenv.config()
 
 // ssl cert
-const privateKey = fs.readFileSync('ssl/localhost.decrypted.key');
-const certificate = fs.readFileSync('ssl/localhost.crt');
+const privateKey = fs.readFileSync(__dirname + '/ssl/localhost.decrypted.key');
+const certificate = fs.readFileSync(__dirname + '/ssl/localhost.crt');
 const credentials = {key: privateKey, cert: certificate};
 
 // define app
